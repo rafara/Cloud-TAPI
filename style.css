@@ -1,0 +1,39 @@
+.minimized {
+    height: 1px;
+    overflow: hidden
+}
+.expanded {
+    height: auto;
+}
+.nicebutton {
+    background-color: #0abf53;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+}
+.niceconfig {
+    color: #c8c8c8;
+    text-decoration: underline;
+    cursor: pointer;
+}
+.niceconfig:hover {
+    color: #0abf53;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+input{
+  border: 1px solid #0abf53;
+  color: #495057;
+  border-radius: 6px;
+  padding: 10px;
+}
+label{
+ color: #495057; 
+ width:150px;
+ display:inline-block;
+}
