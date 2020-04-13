@@ -71,3 +71,26 @@ border: 2px solid black;
 width:70%;
 }
 
+.Response {
+    color: #00112c;
+    border-radius: 3px;
+    padding: 12px 12px 12px 48px;
+    position: relative;
+    display: table;
+    border: 3px solid #cce0ff;   
+    font-family: fakt,sans-serif,Helvetica,Arial;
+    font-size: 15px; 
+}
+.ResponseIcon{
+    left: 0;      
+    content: "&#10140;";
+    color: #0abf53;    
+    position: absolute;
+    text-align: center;
+    text-transform: none;
+    -webkit-transform: translateY(-50%);
+    transform: translateY(-50%);
+    top: 50%;
+    width: 36px;
+}
+

@@ -85,9 +85,20 @@ $Data = '{
     $body = substr($response, $header_size);
 
 
-
+    ////////////////////////////////////////////////////////////////
     //PRINTING ON PAGE:
+
+    $Response = 'Payment Failed';
+    if(strpos($body, 'Success'))
+      $Response = 'Payment Approved';
+
+
     echo "<br/>";
+
+    echo ' <div class="Response"><div class="ResponseIcon">&#10140;</div>';
+    echo $Response;
+    echo "</div>";
+
     echo '<div class="codeSnippetHeader"> <pre><code>';
     echo $header;
     echo "</code></pre></div>";
@@ -95,7 +106,7 @@ $Data = '{
     echo '<div class="codeSnippet"> <pre><code>';
     echo _format_json($body,true);
     echo "</code></pre></div>";
-
+    ////////////////////////////////////////////////////////////////
 
 
    // close cURL resource, and free up system resources
