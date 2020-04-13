@@ -11,8 +11,6 @@
 
   $apiKey = $_POST["apiKey"];
   $cloudURL = $_POST["cloudURL"];
- // $localIP = $_POST["localIP"];
-
 
   $TransactionID = $_POST["TransactionID"]; 
   $ServiceID = $_POST["ServiceID"];
@@ -28,19 +26,9 @@
   $TransactionConditions = $_POST["TransactionConditions"];
   $SaleToAcquirerData = $_POST["SaleToAcquirerData"];
 
-
   
   $ch = curl_init();
   $url = $cloudURL;
-  
-
-  /*
-  $CloudAPI = $_POST["CloudAPI"];
-  if (!empty($CloudAPI) && $CloudAPI == "n"){
-      $url = $localIP;
-      $key = '';
-  }
-  */
 
 
   curl_setopt($ch, CURLOPT_URL, $url);
@@ -49,12 +37,9 @@
   curl_setopt($ch, CURLOPT_VERBOSE, 1);
   curl_setopt($ch, CURLOPT_HEADER, 1);
 
- // curl_setopt($ch, CURLOPT_HTTPHEADER, array("Content-Type:application/json")); 
-    $key = 'x-api-key:'.$apiKey;
+  $key = 'x-api-key:'.$apiKey;
   curl_setopt($ch, CURLOPT_HTTPHEADER, array($key,"Content-Type:application/json")); 
 
-
- 
   
 $Data = '{
   "SaleToPOIRequest": {
@@ -90,10 +75,6 @@ $Data = '{
 
 
     curl_setopt($ch, CURLOPT_POSTFIELDS ,$Data);
-
-
-   // $info = curl_getinfo($ch);
-
     $response = curl_exec($ch);
 
     //status
@@ -104,11 +85,19 @@ $Data = '{
     $body = substr($response, $header_size);
 
 
+
+    //PRINTING ON PAGE:
     echo "<br/>";
+    echo '<div class="codeSnippetHeader"> <pre><code>';
     echo $header;
-    echo "<br/><br/><br/>";
+    echo "</code></pre></div>";
+  
+    echo '<div class="codeSnippet"> <pre><code>';
     echo _format_json($body,true);
-   
+    echo "</code></pre></div>";
+
+
+
    // close cURL resource, and free up system resources
     curl_multi_close($ch);
 
@@ -164,3 +153,4 @@ $Data = '{
   }
 
 ?>
+</html>
